@@ -7,6 +7,8 @@ const morgan = require('morgan');
 
 const hotdogRoutes = require('./server/hot-dog/hotdog.routes');
 const salesRoutes = require('./server/sales/sales.routes');
+const reportsRoutes = require('./server/reports/reports.routes');
+
 const PORT = 4000;
 
 app.use(cors());
@@ -14,6 +16,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use('/hotdog', hotdogRoutes);
 app.use('/sales', salesRoutes);
+app.use('/reports', reportsRoutes);
 
 mongoose.connect('mongodb://127.0.0.1:27017/elcatire', { useNewUrlParser: true, useUnifiedTopology: true });
 const connection = mongoose.connection;
